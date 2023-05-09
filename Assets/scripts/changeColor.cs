@@ -50,7 +50,7 @@ public class changeColor : MonoBehaviour
     public void getSize(float l5s1RF) {
 
         float currSize = 125 + (l5s1RF/3400)*75.00f;
-        GetComponent<RectTransform>().image = new Vector2(currSize, currSize);
+        //GetComponent<RectTransform>().image = new Vector2(currSize, currSize);
     }
 
     public void normalizeL5s1RF(float l5s1RF) {
