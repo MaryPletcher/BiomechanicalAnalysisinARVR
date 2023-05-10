@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public class changeColor : MonoBehaviour
@@ -9,7 +11,7 @@ public class changeColor : MonoBehaviour
 
     [SerializeField] private RawImage image; 
 
-    //[SerializeField] private GameObject testInput; 
+    [SerializeField] private GameObject warningText; 
 
     private float l5s1RF;
     private string currentRF;
@@ -19,7 +21,7 @@ public class changeColor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        l5s1RF = 2400;
+        l5s1RF = 3400;
         //noramlize l5s1RF
         image.GetComponent<RawImage>().color = new Color32(100,245,66,100);
         
@@ -28,8 +30,9 @@ public class changeColor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //currentRF = testInput.GetComponent<TextMeshPro-InputField>().text;
         getColor(l5s1RF);
+        getSize(l5s1RF);
+        getText(l5s1RF);
     }
 
     public void updateColor() {
@@ -50,13 +53,18 @@ public class changeColor : MonoBehaviour
     public void getSize(float l5s1RF) {
 
         float currSize = 125 + (l5s1RF/3400)*75.00f;
-        //GetComponent<RectTransform>().image = new Vector2(currSize, currSize);
+        image.GetComponent<RectTransform>().sizeDelta = new Vector2(currSize, currSize);
     }
 
-    public void normalizeL5s1RF(float l5s1RF) {
-      
+    public void getText(float l5s1RF) {
+
+        if (l5s1RF>=3400) 
+        {
+            warningText.SetActive(true);
+        }
     }
 
+  
 
 
     
